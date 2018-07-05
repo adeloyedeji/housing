@@ -61,7 +61,7 @@ class NotifyPeopleNearby extends Notification implements ShouldQueue
     public function toArray($notifiable) {
         return [
             'type'      => 'New ad.',
-            'message'   => 'A new ad matching your loation axis was just posted on HouseMait',
+            'message'   => 'A new ad matching your location axis was just posted on HouseMait',
             'url'       =>  url('ads/result/' . $this->ad->slug)
         ];
     }

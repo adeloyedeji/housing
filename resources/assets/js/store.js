@@ -8,6 +8,7 @@ export const store = new Vuex.Store({
         notifications: [], 
         auth_user: {},
         ads: [],
+        chat: [],
     }, 
     getters: {
         all_notifications(state) {
@@ -21,6 +22,9 @@ export const store = new Vuex.Store({
         },
         all_ads_count(state) {
             return state.ads.length
+        },
+        all_chat(state) {
+            return state.chat
         }
     }, 
     mutations: {
@@ -43,6 +47,9 @@ export const store = new Vuex.Store({
             //aa = ads.indexOf(ad)
 
             //ads.splice(aa, 1)
+        },
+        push_message(state, chat) {
+            state.chat.push(chat)
         }
     }, 
     actions: {

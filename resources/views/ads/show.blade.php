@@ -166,14 +166,24 @@
                                 <li><a href="javascript:void(0)">{{ $ad->max_bath }} Bath Room(s)</a></li>
                             </ul>
                         </div>
-                        <!-- End features area  -->
 
+                        <div class="section property-features">      
+
+                            <h4 class="s-property-title">Budget</h4>                            
+                            <ul>
+                                <li><a href="javascript:void(0)">₦ {{ $ad->max_rent }}</a></li>
+                            </ul>
+                        </div>
+
+                        <!-- End features area  -->
+                        @if ($ad->user_id != \Auth::id())
                         <div class="section property-features"> 
                             <h4 class="s-property-title">Contact owner</h4>  
                             <button class="navbar-btn nav-button wow fadeInRight" data-wow-delay="0.58s" onclick="window.location.href='/messaging/chat/{{$ad->user->profile->phone}}'">
                                 Send a private message
                             </button>
                         </div>
+                        @endif
 
                         
                         @include('ads.partials.show.comment-section')

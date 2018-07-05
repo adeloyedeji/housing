@@ -105,12 +105,12 @@ class AdsController extends Controller
                 $this->uploadAdImage($request->file('image5'), $store->id);
             }
 
-            //event(new \App\Events\NewAdEvent($store));
             \App\User::find(\Auth::id())->notify(new \App\Notifications\NewAdvert($store));
 
-            $profiles_near_by = \App\Profile::where('current_location', 'LIKE', '%' . $data['exact_location'] . '%')->get();
+            $profiles_near_by = \App\Profile::where('current_address', 'LIKE', '%' . $data['exact_location'] . '%')->get();
             foreach($profiles_near_by as $profile):
-                \App\User::find($profile->user_id)->notify(new \App\Notifications\NotifyPeopleNearby($store, $user));
+                $user = \App\User::find($profile->user_id);
+                $user->notify(new \App\Notifications\NotifyPeopleNearby($store, $user));
             endforeach;
             
             session(['post-ad' => 'Successful! Your ad has been posted. You will receive notifications once theres a request.']);
@@ -273,5 +273,18 @@ class AdsController extends Controller
         $ad->delete();
 
         return 1;
+    }
+
+    public function testnearby() {
+        $location = \Auth::user()->profile->current_address;
+
+        $profiles_near_by = \App\Profile::where('current_address',  'LIKE',  '%' . $location . '%')->get();
+
+        $users = [];
+        foreach($profiles_near_by as $profile):
+            $users[] = \App\User::find($profile->user_id);
+        endforeach;
+
+        dd($users);
     }
 }

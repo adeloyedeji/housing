@@ -27,7 +27,7 @@
 <script src="{{ asset('js/main.js') }}"></script>
 <!--<script src="{{ asset('js/bootstrap-notify.js') }}"></script> -->
 
-@if( !active('home') )
+@if( !active('home')  && !active('messaging/chat/*') )
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCWT3Ts0ojgLU8RXYIlt-ysZF1N28bmjLs&libraries=places&callback=initializeMap" async defer></script>
 <script>
     function initializeMap()

@@ -9,6 +9,7 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 window.Noty = require('Noty');
+window.Moment = require('moment');
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

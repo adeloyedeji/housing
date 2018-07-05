@@ -51,9 +51,9 @@ class Utility {
     } 
 
     public static function short_description($str) {
-        $short = substr($str, 0, 200);
-        if(strlen($str) > 200):
-            $short = substr($str, 0, 200) . "...";
+        $short = substr($str, 0, 100);
+        if(strlen($str) > 100):
+            $short = substr($str, 0, 100) . "...";
         endif;
         return $short;
     }

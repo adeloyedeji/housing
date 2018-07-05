@@ -36,6 +36,21 @@ Route::group(['middleware' => 'auth'], function() {
         'as'    =>  'messaging.chat'
     ]);
 
+    Route::get('/messaging/load-messages/{user_id}/{chat_id}', [
+        'uses'  =>  'MessagingController@load_messages',
+        'as'    =>  'messaging.chat.load'
+    ]);
+
+    Route::get('/messaging/post', [
+        'uses'  =>  'MessagingController@post_message',
+        'as'    =>  'messaging.post'
+    ]);
+
+    Route::get('/test-users-nearby', [
+        'uses'  =>  'AdsController@testnearby',
+        'as'    =>  'nearby.test'
+    ]);
+
     Route::get('/get_auth_user_data', function() {
         return \Auth::user();
     });
@@ -71,4 +86,14 @@ Route::group(['middleware' => 'auth'], function() {
         'uses' => 'ProfileController@activate',
         'as'    => 'profile'
     ]);
+});
+
+Route::group(['prefix' => 'api'], function()
+{
+    Route::resource('authenticate', 'AuthenticateController', ['only' => ['index']]);
+    Route::post('authenticate', 'AuthenticateController@authenticate');
+    Route::post('refresh-token', 'AuthenticateController@refreshToken');
+    Route::post('get-user', 'AuthenticateController@getUser');
+    Route::get('home', 'ApiController@home');
+    Route::get('/ads/result/{slug}', 'ApiController@getAd');
 });

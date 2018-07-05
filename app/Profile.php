@@ -11,7 +11,7 @@ class Profile extends Model
     //
     use SoftDeletes;
     protected $fillable = [
-        'user_id', 'birthday', 'phone1', 'phone2', 'marital_status', 'current_address', 'city', 'state_id', 'country_id', 'about'
+        'user_id', 'birthday', 'phone1', 'phone2', 'marital_status', 'current_address', 'city', 'state_id', 'country_id', 'about', 'online_status'
     ];
 
     protected $dates = ['deleted_at'];

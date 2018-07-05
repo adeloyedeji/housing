@@ -43,6 +43,8 @@ class AdsRepo implements AdsInterface {
                 $ads = \App\Ads::latest()->paginate(4);
             } else if($id == "vue") {
                 $ads = \App\Ads::latest()->get();
+            } else if($id == "mobile-home") {
+                $ads = \App\Ads::latest()->get();
             }
         } catch(\Exception $ex) {
             return $ex;

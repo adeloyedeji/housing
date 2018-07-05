@@ -60,16 +60,17 @@
 
                                     <div class="item-entry overflow">
                                         <h5>
-                                            <a class="text-house" href="{{ url('ads/result') }}/{{$ad->slug}}" style="text-transform:none"> 
+                                            <a class="text-house" href="{{ url('ads/result') }}/{{$ad->slug}}" style="text-transform:none;font-family: 'ABeeZee', sans-serif;color: #3498db;"> 
                                                 {{ ucwords(Utility::short_title($ad->title)) }} 
                                             </a>
                                         </h5>
                                         <div class="dot-hr"></div>
                                         <span class="pull-left"><b> Date :</b> {{ $ad->created_at->diffForHumans() }} </span>
                                         <span class="proerty-price pull-right">
-                                            <span class="">My budget</span>
-                                            {{--  <div class="ribbon ribbon-top-right"><span>My budget</span></div>  --}}
-                                            N {{ number_format( $ad->max_rent) }}
+                                            {{--  <span class="">My budget</span>  --}}
+                                            <div class="ribbon ribbon-top-right" style="font-family: 'PT Sans', sans-serif;"><span>budget</span></div> 
+                                            
+                                            <span style="font-family: 'PT Sans', sans-serif;">₦ {{ number_format( $ad->max_rent) }}</span>
                                         </span>
                                         <p style="display: none;" class="text-house">
                                             <b>
@@ -77,8 +78,8 @@
                                             </b>
                                         </p>
                                         <div class="property-icon" style="width:100%">
-                                            <img src="{{ asset('img/icon/bed.png') }}"> {{$ad->bedrooms}}&emsp;
-                                            <img src="{{ asset('img/icon/shawer.png') }}"> {{$ad->bathrooms}}
+                                            <img src="{{ asset('img/icon/bed.png') }}"> {{$ad->max_bed}}&emsp;/
+                                            <img src="{{ asset('img/icon/shawer.png') }}"> {{$ad->max_bath}}
                                         </div>
                                     </div>
                                 </div>
@@ -96,11 +97,11 @@
                     </div>                
                 </div>
             </div>  
-            <div class="col-md-3  p0 padding-top-40">
+            {{--  <div class="col-md-3  p0 padding-top-40">
                 <img class="img-responsive img-thumbnail" alt="" src="{{ asset('img/Place-Your-Advert-Here.jpg') }}">
                 <br><br><br>
                 <img class="img-responsive img-thumbnail" alt="" src="{{ asset('img/wwb_img24.jpg') }}">
-            </div>
+            </div>  --}}
         </div>
     </div>
 </div>

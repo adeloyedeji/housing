@@ -12,7 +12,7 @@ class Ads extends Model
     ];
 
     protected $appends = [
-        'areaOwner', 'adsImage', 'adsComment'
+        'areaOwner', 'adsImage', 'adsComment', 'adOwner'
     ];
 
     protected $dates = [
@@ -35,6 +35,10 @@ class Ads extends Model
         $comments = \App\AdsComment::where('id', $this->id)->get();
 
         return $comments;
+    }
+
+    public function getAdOwnerAttribute() {
+        return \App\User::find($this->user_id);
     }
 
     public function adImage() {

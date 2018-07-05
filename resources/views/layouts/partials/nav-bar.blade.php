@@ -27,7 +27,7 @@
                 @else
                     <button class="navbar-btn nav-button wow bounceInRight login" onclick="window.open('{{ route('login') }}')" data-wow-delay="0.45s">Login / Register</button>
                 @endif
-                <button class="navbar-btn nav-button wow fadeInRight" onclick="window.open('{{ url('ads/create') }}')" data-wow-delay="0.58s">Post an ad</button>
+                <button class="navbar-btn nav-button wow fadeInRight" onclick="window.open('{{ url('ads/create') }}')" data-wow-delay="0.58s" style="background-color:#afab0a;color:#fff">Post an ad</button>
             </div>
             <ul class="main-nav nav navbar-nav navbar-right">
                 <li class="ymm-sw " data-wow-delay="0.1s">

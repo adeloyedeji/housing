@@ -77,7 +77,10 @@
                                         <h5><a class="text-house" href="{{ url('ads/result') }}/{{$ad->slug}}"> {{ $ad->title }} </a></h5>
                                         <div class="dot-hr"></div>
                                         <span class="pull-left"><b> Date :</b> {{ $ad->created_at->diffForHumans() }} </span>
-                                        <span class="proerty-price pull-right"> N <span class="price-ch">{{ number_format($ad->max_rent) }}</span></span>
+                                        <span class="proerty-price pull-right"> 
+                                            <div class="ribbon ribbon-top-right" style="font-family: 'PT Sans', sans-serif;"><span>budget</span></div> 
+                                            ₦ <span class="price-ch" style="font-family: 'PT Sans', sans-serif;">{{ number_format($ad->max_rent) }}</span>
+                                        </span>
                                         <p class="text-house" style="display: none;">
                                             <b>
                                                 {{ $ad->description }}

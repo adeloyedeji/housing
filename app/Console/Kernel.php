@@ -13,7 +13,8 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        //
+        \App\Console\Commands\EmailCron::class,
+        \App\Console\Commands\JobCron::class,
     ];
 
     /**
@@ -24,8 +25,9 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')
-        //          ->hourly();
+        // $schedule->command('inspire')->hourly();
+        $schedule->command('email:cron')->everyMinute();
+        $schedule->command('job:cron')->everyMinute();
         $schedule->command('queue:work --daemon')->everyMinute()->withoutOverlapping();
     }
 

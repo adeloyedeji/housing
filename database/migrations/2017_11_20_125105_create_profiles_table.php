@@ -24,6 +24,7 @@ class CreateProfilesTable extends Migration
             $table->integer('state_id')->nullable();
             $table->integer('country_id')->nullable();
             $table->text('about')->nullable();
+            $table->boolean('online_status')->default(0);
             $table->timestamps();
             $table->softDeletes();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

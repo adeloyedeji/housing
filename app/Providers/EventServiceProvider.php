@@ -26,6 +26,9 @@ class EventServiceProvider extends ServiceProvider
             'App\Listeners\NewAdEventListener',
             'App\Listeners\NewAdNotificationListener'
         ],
+        'Illuminate\Auth\Events\Login'  =>  [
+            'App\Listeners\UserLoginListener'
+        ], 
     ];
 
     /**

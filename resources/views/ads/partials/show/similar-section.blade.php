@@ -16,7 +16,7 @@
                         <a href="{{ url('ads/result') }}/{{$ad->slug}}" ><img src="{{ asset('') }}/{{ $image }}" style="height:150px;width:100%"></a>
                     </div>
                     <div class="item-entry overflow">
-                        <h5><a href="property-1.html"> {{ $ad->title }} </a></h5>
+                        <h5><a href="{{ url('ads/result') }}/{{$ad->slug}}"> {{ $ad->title }} </a></h5>
                         <div class="dot-hr"></div>
                         <span class="pull-left"><b> Date :</b> {{ $ad->created_at->diffForHumans() }} </span>
                         <span class="proerty-price pull-right"> N {{ $ad->maximum_rent }}</span> 

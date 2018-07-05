@@ -107,7 +107,7 @@ a {
     border-color: #593196;
 }
 .proerty-th-list .proerty-price {
-    color: #593196;
+    color: #afab0a;
 }
 .dealer-action a::after {
     color: #593196;
@@ -132,13 +132,19 @@ a {
 }
 .text-house {
     color: #593196;
+    font-family: 'PT Sans', sans-serif;
+    font-weight: 100;
+    font-size: 16px;
 }
 .item-entry a {
     color: #593196;
+    font-family: 'PT Sans', sans-serif;
+    font-weight: bold;
+    font-size: 24px;
 }
 
 .ribbon {
-    width: 150px;
+    width: 130px;
     height: 150px;
     overflow: hidden;
     position: absolute;
@@ -155,7 +161,7 @@ a {
     position: absolute;
     display: block;
     width: 225px;
-    padding: 15px 0;
+    padding: 10px 0;
     background-color: #3498db;
     box-shadow: 0 5px 10px rgba(0,0,0,.1);
     color: #fff;
@@ -191,8 +197,8 @@ a {
   
   /* top right*/
   .ribbon-top-right {
-    top: -10px;
-    right: -10px;
+    top: -2px;
+    right: -20px;
   }
   .ribbon-top-right::before,
   .ribbon-top-right::after {

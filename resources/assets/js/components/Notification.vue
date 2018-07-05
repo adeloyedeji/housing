@@ -16,13 +16,18 @@ export default {
         listen() {
             Echo.private('App.User.' + this.id)
                 .notification( (data) => {
-                    new Noty({
-                        type: 'success',
-                        layout: 'bottomLeft',
-                        text: data.message
-                    }).show();
-                    this.$store.commit("add_notification", data)
-                    document.getElementById("noty_audio").play()
+                    if(data.type == "App\\Notifications\\NewMessageNotification") {
+                        this.$store.commit("push_message", data)
+                        document.getElementById("noty_audio").play()
+                    } else {
+                        new Noty({
+                            type: 'success',
+                            layout: 'bottomLeft',
+                            text: data.message
+                        }).show();
+                        this.$store.commit("add_notification", data)
+                        document.getElementById("noty_audio").play()
+                    }
                 })
         }
     }
